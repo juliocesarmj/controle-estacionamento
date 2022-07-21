@@ -4,14 +4,11 @@ import br.com.controleestacionamento.dtos.ParkingSpotDTO;
 import br.com.controleestacionamento.models.ParkingSpotModel;
 import br.com.controleestacionamento.repositories.ParkingSpotRepository;
 import org.springframework.beans.BeanUtils;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 @Service
 public class ParkingSpotService {
@@ -40,11 +37,6 @@ public class ParkingSpotService {
 
     public List<ParkingSpotModel> getAll() {
         return this.parkingSpotRepository.findAll();
-//        .stream().map(element -> {
-//            var dto = new ParkingSpotDTO();
-//            BeanUtils.copyProperties(element, dto);
-//            return dto;
-//        }).collect(Collectors.toList())
     }
 
     public ParkingSpotDTO getOne(UUID id) {
